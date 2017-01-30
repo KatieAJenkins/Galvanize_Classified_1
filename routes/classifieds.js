@@ -37,15 +37,15 @@ router.get('/:id' , (req, res, next) => {
 
 router.post('/' , (req, res, next) => {
   console.log('post route connected');
-  // 
-  // knex('classifieds')
-  //
-  // .then((results) => {
-  //   res.send(results);
-  // })
-  // .catch((err) => {
-  //   next(err);
-  // });
+
+  knex('classifieds')
+  
+  .then((results) => {
+    res.send(results);
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 
