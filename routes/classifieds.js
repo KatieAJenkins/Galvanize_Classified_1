@@ -21,7 +21,6 @@ router.get ('/' , (req, res, next) => {
 
 router.get('/:id' , (req, res, next) => {
   // console.log('get by id connected');
-
   const id = req.params.id;
 
   knex('classifieds')
@@ -35,6 +34,20 @@ router.get('/:id' , (req, res, next) => {
     next(err);
   });
 });
+
+router.post('/' , (req, res, next) => {
+  console.log('post route connected');
+  // 
+  // knex('classifieds')
+  //
+  // .then((results) => {
+  //   res.send(results);
+  // })
+  // .catch((err) => {
+  //   next(err);
+  // });
+});
+
 
 
 module.exports = router;
