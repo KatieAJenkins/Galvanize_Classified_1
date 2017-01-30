@@ -45,10 +45,11 @@ router.post('/' , (req, res, next) => {
   // console.log(title, description, price, item_image);
 
   knex('classifieds')
-    .insert
+    .insert({title:title, description:description, price:price , item_image:item_image})
+    .returning(['id', 'title' , 'description', 'price' , 'item_image'])
 
   .then((results) => {
-    res.send(results);
+    res.send(results[0]);
   })
   .catch((err) => {
     next(err);
