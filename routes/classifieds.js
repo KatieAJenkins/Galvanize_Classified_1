@@ -78,5 +78,9 @@ router.patch('/:id' , (req, res, next) => {
   });
 });
 
+router.delete('/:id' , (req, res, next) => {
+  console.log('delete route connected');
+});
+
 
 module.exports = router;
