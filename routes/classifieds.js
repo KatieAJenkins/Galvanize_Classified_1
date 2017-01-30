@@ -56,6 +56,16 @@ router.post('/' , (req, res, next) => {
   });
 });
 
+router.patch('/:id' , (req, res, next) => {
+  // console.log('patch route connected');
+  const id = req.params.id;
+  const title = req.body.title;
+  const description = req.body.description;
+  const price = req.body.price;
+  const item_image = req.body.item_image;
+  console.log(title, description, price, item_image);
+
+});
 
 
 module.exports = router;
