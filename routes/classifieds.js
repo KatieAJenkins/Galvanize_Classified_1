@@ -36,10 +36,17 @@ router.get('/:id' , (req, res, next) => {
 });
 
 router.post('/' , (req, res, next) => {
-  console.log('post route connected');
+  // console.log('post route connected');
+
+  const title = req.body.title;
+  const description = req.body.description;
+  const price = req.body.price;
+  const item_image = req.body.item_image;
+  // console.log(title, description, price, item_image);
 
   knex('classifieds')
-  
+    .insert
+
   .then((results) => {
     res.send(results);
   })
