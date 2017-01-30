@@ -63,8 +63,19 @@ router.patch('/:id' , (req, res, next) => {
   const description = req.body.description;
   const price = req.body.price;
   const item_image = req.body.item_image;
-  console.log(title, description, price, item_image);
+  // console.log(title, description, price, item_image);
 
+  knex('classifieds')
+    .update({title, description, price, item_image})
+    .where('id' , id)
+    .returning(['id' , 'title' , 'description', 'price' , 'item_image'])
+
+  .then((results) => {
+    res.send(results[0]);
+  })
+  .catch((err) => {
+    next(err);
+  });
 });
 
 
